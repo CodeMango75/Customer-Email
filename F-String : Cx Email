@@ -1,0 +1,52 @@
+# Create a Program where a customer inputs at least 3 items and a System generated email is sent to him/her. USING
+# F-String method
+import random
+
+# Prompting Customer Name
+Customer_Name = input("Enter Customer Name: ")
+# Single Line Variable Assignments
+Item1, Price1, Qty1 = input("Select Item 1: "), int(input("Input Price Tag: ")), int(input("Enter Quantity: "))
+Item2, Price2, Qty2 = input("Select Item 2: "), int(input("Input Price Tag: ")), int(input("Enter Quantity: "))
+Item3, Price3, Qty3 = input("Select Item 3: "), int(input("Input Price Tag: ")), int(input("Enter Quantity: "))
+# Creating a Random Reference Number from 1000 - 5000
+Reference_Number = random.randint(1000, 5000)
+# String Date
+Dated = "August 16, 2023"
+# Price in to Quantity Formula
+Total1 = Price1 * Qty1
+Total2 = Price2 * Qty2
+Total3 = Price3 * Qty3
+# Grand Total
+Grand_Total = Total1 + Total2 + Total3
+# Generating System Email now with F-String Interpolation
+System_Email = f'''
+To
+{Customer_Name}
+Reference Number: {Reference_Number}
+Dated: {Dated}
+Subject: Receipt of Items
+
+Dear {Customer_Name},
+Congratulations! Your Order has been confirmed and awaiting to be shipped. You will be notified once your order is
+dispatched from our wherehouse. Your receipt is enclosed as below:
+\n
+**************************************************************
+* Item(s)\t      Price\t      Quantity\t       Total           *
+* {Item1}\t      {Price1}\t     {Qty1}\t      {Total1}         *
+* {Item2}\t      {Price2}\t     {Qty2}\t      {Total2}         *
+* {Item3}\t      {Price3}\t     {Qty3}\t      {Total3}         *
+*                                                              *
+* Grand Total\t                            {Grand_Total}       *
+**************************************************************
+\n
+We are pleased to have you as our customer. Thank you for choosing us. Please reach out to us for any further
+assistance.
+Happy Shopping!
+
+Regards
+Customer Support Team
+Gravity Mart
+
+'''
+print(System_Email)
+
